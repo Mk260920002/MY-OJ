@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block form %}
+
+<form method="post" class="text-center">
+     
+    <h1 class="h3 mb-3 fw-normal" style="color: Blue; margin-left: 2%;margin-top:5%">
+  Log In
+ </h1>
+
+ {% csrf_token %} {{form.as_p}}
+
+ <div class="checkbox mb-3">
+   <label>
+     <input type="checkbox" value="remember-me" /> Remember me
+   </label>
+ </div>
+
+ <button class="w-20 btn btn-sm btn-primary" type="submit"> Login</button>
+
+</form>
+{% endblock form %}

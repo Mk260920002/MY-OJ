@@ -1,5 +1,7 @@
-from atexit import register
+# from atexit import register
 from django.contrib import admin
-from My_App.models import submissions
+from .models import Problem,testcase,submissions
  
+admin.site.register(Problem)
 admin.site.register(submissions)
+admin.site.register(testcase)

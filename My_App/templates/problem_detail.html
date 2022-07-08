@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block form %}
+ <h1 class="text-center">{{problem.name}}</h1>
+ <p align="center" >{{problem.problem_desc}}</p>
+        
+
+  
+    <form action="{% url 'submit' problem.problem_id %}" enctype="multipart/form-data" method="POST">
+      {% csrf_token %}
+      <fieldset align="center" style="margin:5rem;">
+      <legend class="text-center">Submit Your Code Here!</legend>
+      
+        <input type="file" name="solution">
+        <br><br>
+        <button style="margin-right:13rem" type="submit" class="btn btn-primary">Submit</button>
+     </fieldset>
+    </form>
+
+
+{% endblock form %}

@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
 {% block form %}
-<h1 clas="text-center" >WELCOME TO DASHBOARD</h1>
-{% endblock form %}
+<div class="container-fluid" >
+<h1 class="text-center my-3">WELCOME TO DASHBOARD</h1>
+</div>
+<div class="container-fluid mx-4  ">
+ {% if problem_list  %}             
+  {% for problem in problem_list%}
+    
+       <li class="font-weight-bold"> <a href='{% url 'problem_detail' problem.problem_id%}'>{{problem.name}}</a></li>
+    
+   {% endfor %}
+{% else %}
+ <p>There is no any problem in your DASHBOARD</p>
+{% endif %}
+</div>
+{% endblock  %}

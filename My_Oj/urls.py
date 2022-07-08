@@ -9,4 +9,5 @@ urlpatterns = [
   
     path('logout/',include('My_App.urls')),
     path('register/',include('My_App.urls')),
+    
 ]

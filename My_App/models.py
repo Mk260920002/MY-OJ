@@ -15,20 +15,21 @@ class Problem(models.Model):
       return self.name
 
 class submissions(models.Model):
-    problem_id=models.ForeignKey(Problem,on_delete=models.CASCADE)
+    problem=models.ForeignKey(Problem,on_delete=models.CASCADE)
     
     submitted_at=datetime.now()
     Verdict=models.CharField(max_length=50,null=True)
-
-    # def __str__(self):
-    #  return self.name
+    submitted_code=models.CharField(max_length=500,null=True)
+    
+    def __str__(self):
+      return self.problem.name
 
 class testcase(models.Model):
-    problem_id=models.ForeignKey(Problem,on_delete=models.CASCADE)
+    problem=models.ForeignKey(Problem,on_delete=models.CASCADE)
     
     input=models.CharField(max_length=500)
     output=models.CharField(max_length=500)
 
-    # def __str__(self) :
-    #    return self.testcase_name
+    def __str__(self) :
+        return self.problem.name
     

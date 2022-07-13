@@ -8,11 +8,16 @@
     <form action="{% url 'submit' problem.problem_id %}" enctype="multipart/form-data" method="POST">
       {% csrf_token %}
       <fieldset align="center" style="margin:5rem;">
-      <legend class="text-center">Submit Your Code Here!</legend>
+    
       
         <input type="file" name="solution">
-        <br><br>
-        <button style="margin-right:13rem" type="submit" class="btn btn-primary">Submit</button>
+        <button align="center" type="submit" class="btn btn-primary">Submit</button>
+        <br></br>
+        <p><label for="center">Code Area</label></p>
+          <textarea class="form-control" name="code" id="code"  cols="40" rows="5" ></textarea>
+        
+          <br></br>
+        <button align="center" type="submit" class="btn btn-primary">Submit</button>
      </fieldset>
     </form>
 

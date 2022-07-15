@@ -1,6 +1,8 @@
 
 from django.db import models
 from django.utils.timezone import datetime
+from django.contrib.auth.models import User
+
 
 
 class Problem(models.Model):
@@ -16,13 +18,13 @@ class Problem(models.Model):
 
 class submissions(models.Model):
     problem=models.ForeignKey(Problem,on_delete=models.CASCADE)
-    
+    user=models.ForeignKey(User,on_delete=models.CASCADE, unique=False,null=False)
     submitted_at=datetime.now()
     Verdict=models.CharField(max_length=50,null=True)
-    submitted_code=models.CharField(max_length=500,null=True)
+    submitted_code=models.CharField( max_length=500,null=True)
     
     def __str__(self):
-      return self.problem.name
+      return self.Verdict
 
 class testcase(models.Model):
     problem=models.ForeignKey(Problem,on_delete=models.CASCADE)
@@ -32,4 +34,4 @@ class testcase(models.Model):
 
     def __str__(self) :
         return self.problem.name
-    
+
